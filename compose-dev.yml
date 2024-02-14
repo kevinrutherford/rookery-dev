@@ -1,0 +1,37 @@
+version: "3.7"
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "50m"
+    max-file: "4"
+
+services:
+
+  backend:
+    image: "kevinrutherford/rookery-backend:local-dev"
+    build:
+      context: ${ROOKERY_BACKEND_REPO}
+    restart: no
+    ports:
+      - "44002:44002"
+    logging: *default-logging
+
+  ui:
+    image: "kevinrutherford/rookery-ui:local-dev"
+    build:
+      context: ${ROOKERY_UI_REPO}
+      dockerfile: docker.dev
+    volumes:
+      - ${ROOKERY_UI_REPO}/app:/app/app
+      - ${ROOKERY_UI_REPO}/public:/app/public
+    restart: no
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    logging: *default-logging
+
