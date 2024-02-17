@@ -12,6 +12,9 @@ services:
     image: "kevinrutherford/rookery-backend:local-dev"
     build:
       context: ${ROOKERY_BACKEND_REPO}
+      dockerfile: docker.dev
+    volumes:
+      - ${ROOKERY_BACKEND_REPO}/src:/app/src
     restart: no
     ports:
       - "44002:44002"
