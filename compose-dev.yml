@@ -14,7 +14,7 @@ services:
       context: ${ROOKERY_BACKEND_REPO}
       dockerfile: docker.dev
     volumes:
-      - ${ROOKERY_BACKEND_REPO}/src:/app/src
+      - ${ROOKERY_BACKEND_REPO}/src:/srv/app/src
     restart: no
     ports:
       - "44002:44002"
