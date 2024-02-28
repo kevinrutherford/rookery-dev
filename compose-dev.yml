@@ -8,13 +8,29 @@ x-logging: &default-logging
 
 services:
 
-  backend:
-    image: "kevinrutherford/rookery-backend:local-dev"
+  commands:
+    image: "kevinrutherford/rookery-commands:local-dev"
     build:
-      context: ${ROOKERY_BACKEND_REPO}
+      context: ${ROOKERY_COMMANDS_REPO}
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ${ROOKERY_COMMANDS_REPO}/src:/srv/app/src
+    depends_on:
+      - eventstore
+    restart: no
+    ports:
+      - "44001:44001"
+    logging: *default-logging
+
+  views:
+    image: "kevinrutherford/rookery-views:local-dev"
+    build:
+      context: ${ROOKERY_VIEWS_REPO}
       dockerfile: docker.dev
     volumes:
-      - ${ROOKERY_BACKEND_REPO}/src:/srv/app/src
+      - ${ROOKERY_VIEWS_REPO}/src:/srv/app/src
+    depends_on:
+      - eventstore
     restart: no
     ports:
       - "44002:44002"
@@ -28,6 +44,9 @@ services:
     volumes:
       - ${ROOKERY_UI_REPO}/app:/app/app
       - ${ROOKERY_UI_REPO}/public:/app/public
+    depends_on:
+      - commands
+      - views
     restart: no
     ports:
       - "3000:3000"
@@ -38,7 +57,7 @@ services:
       - WATCHPACK_POLLING=true
     logging: *default-logging
 
-  eventstore.db:
+  eventstore:
     image: eventstore/eventstore:lts
     environment:
       - EVENTSTORE_CLUSTER_SIZE=1
