@@ -40,6 +40,24 @@ curl --fail-with-body -X POST -H 'Content-type: application/json' --url http://l
 curl --fail-with-body -X POST -H 'Content-type: application/json' --url http://localhost:44001/entries -d '{
   "id": "'$ENTRY_3_ID'",
   "doi": "10.1111/padm.12268",
-  "collectionId": "'$COLLECTION_1_ID'"
+  "collectionId": "'$COLLECTION_2_ID'"
+}'
+
+curl --fail-with-body -X POST -H 'Content-type: application/json' --url http://localhost:44001/comments -d '{
+  "id": "'$(uuidgen)'",
+  "entryId": "'$ENTRY_1_ID'",
+  "content": "I love this!"
+}'
+
+curl --fail-with-body -X POST -H 'Content-type: application/json' --url http://localhost:44001/comments -d '{
+  "id": "'$(uuidgen)'",
+  "entryId": "'$ENTRY_1_ID'",
+  "content": "Personally, I think it is a little overrated."
+}'
+
+curl --fail-with-body -X POST -H 'Content-type: application/json' --url http://localhost:44001/comments -d '{
+  "id": "'$(uuidgen)'",
+  "entryId": "'$ENTRY_3_ID'",
+  "content": "Not relevant to our needs."
 }'
 
