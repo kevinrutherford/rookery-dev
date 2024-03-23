@@ -4,8 +4,8 @@ set -e
 
 API="${1:-http://localhost:44001}"
 
-COLLECTION_1_ID=collection.`uuidgen`
-COLLECTION_2_ID=collection.`uuidgen`
+COLLECTION_1_ID=`uuidgen`
+COLLECTION_2_ID=`uuidgen`
 
 curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/collections -d '{
   "id": "'$COLLECTION_1_ID'",
@@ -21,11 +21,11 @@ curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/c
   "description": "Papers to be referenced by the PRU3 project"
 }'
 
-ENTRY_1_ID=entry.`uuidgen`
-ENTRY_2_ID=entry.`uuidgen`
-ENTRY_3_ID=entry.`uuidgen`
-ENTRY_4_ID=entry.`uuidgen`
-ENTRY_5_ID=entry.`uuidgen`
+ENTRY_1_ID=`uuidgen`
+ENTRY_2_ID=`uuidgen`
+ENTRY_3_ID=`uuidgen`
+ENTRY_4_ID=`uuidgen`
+ENTRY_5_ID=`uuidgen`
 
 curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/entries -d '{
   "id": "'$ENTRY_1_ID'",
