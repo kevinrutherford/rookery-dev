@@ -4,17 +4,22 @@ set -e
 
 API="${1:-http://localhost:44001}"
 
+submit() {
+  sleep 2
+  curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/$1 -d "$2"
+}
+
 COLLECTION_1_ID=`uuidgen`
 COLLECTION_2_ID=`uuidgen`
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/collections -d '{
+submit collections '{
   "id": "'$COLLECTION_1_ID'",
   "handle": "chs",
   "name": "CHS",
   "description": "Papers under review by the CHS project"
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/collections -d '{
+submit collections '{
   "id": "'$COLLECTION_2_ID'",
   "handle": "pru3",
   "name": "PRU3",
@@ -27,37 +32,37 @@ ENTRY_3_ID=`uuidgen`
 ENTRY_4_ID=`uuidgen`
 ENTRY_5_ID=`uuidgen`
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/entries -d '{
+submit entries '{
   "id": "'$ENTRY_1_ID'",
   "doi": "10.1126/science.1172133",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/entries -d '{
+submit entries '{
   "id": "'$ENTRY_2_ID'",
   "doi": "10.3399/BJGP.2023.0216",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/entries -d '{
+submit entries '{
   "id": "'$ENTRY_3_ID'",
   "doi": "10.1111/padm.12268",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/comments -d '{
+submit comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_1_ID'",
   "content": "I love this!"
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/comments -d '{
+submit comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_1_ID'",
   "content": "Personally, I think it is a little overrated."
 }'
 
-curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/comments -d '{
+submit comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_3_ID'",
   "content": "Not relevant to our needs."
