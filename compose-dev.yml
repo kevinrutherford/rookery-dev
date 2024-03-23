@@ -27,7 +27,7 @@ services:
     image: "kevinrutherford/rookery-views:local-dev"
     build:
       context: ${ROOKERY_VIEWS_REPO}
-      dockerfile: docker.dev
+      dockerfile: dev.Dockerfile
     volumes:
       - ${ROOKERY_VIEWS_REPO}/src:/srv/app/src
     depends_on:
@@ -42,7 +42,7 @@ services:
     image: "kevinrutherford/rookery-ui:local-dev"
     build:
       context: ${ROOKERY_UI_REPO}
-      dockerfile: docker.dev
+      dockerfile: dev.Dockerfile
     volumes:
       - ${ROOKERY_UI_REPO}/app:/app/app
       - ${ROOKERY_UI_REPO}/public:/app/public
