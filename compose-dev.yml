@@ -8,6 +8,20 @@ x-logging: &default-logging
 
 services:
 
+  sagas:
+    image: "kevinrutherford/rookery-sagas:local-dev"
+    build:
+      context: ${ROOKERY_SAGAS_REPO}
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ${ROOKERY_SAGAS_REPO}/src:/srv/app/src
+    depends_on:
+      - commands
+      - views
+    restart: no
+    tty: true
+    logging: *default-logging
+
   commands:
     image: "kevinrutherford/rookery-commands:local-dev"
     build:
