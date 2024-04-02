@@ -59,7 +59,7 @@ submit comments '{
 submit comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_1_ID'",
-  "content": "Personally, I think it is a little overrated."
+  "content": "Here is a very long comment, written entirely to test text justification in the browser page for the entry. If you are going to use a passage of Lorem Ipsum, you need to be sure there is nothing embarrassing hidden in the middle of text."
 }'
 
 submit comments '{
