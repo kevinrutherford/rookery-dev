@@ -110,7 +110,7 @@ patch works/10.5555/666777 '{
     "type": "work",
     "id": "10.5555/666777",
     "attributes": {
-      "crossrefStatus": "not-found",
+      "crossrefStatus": "not-found"
     }
   }
 }'
