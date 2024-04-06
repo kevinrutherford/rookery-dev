@@ -55,6 +55,12 @@ post entries '{
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
+post entries '{
+  "id": "'$ENTRY_4_ID'",
+  "doi": "10.5555/666777",
+  "collectionId": "'$COLLECTION_2_ID'"
+}'
+
 post comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_1_ID'",
@@ -95,6 +101,16 @@ patch works/10.3399/BJGP.2023.0216 '{
       "title": "Implementing the Additional Roles Reimbursement Scheme in 7 English PCNs: a qualitative study",
       "abstract": "Background: The Additional Roles Reimbursement Scheme (ARRS) provides funding to Primary Care Networks (PCNs) in England to recruit additional staff into specified roles. The intention is to support general practice by recruiting an extra 26,000 staff by 2024, increasing access and easing workload pressures. Aim: To explore the establishment of the ARRS as part of PCNs development to understand their role in supporting general practice. Design and Setting: Longitudinal, qualitative case study involving seven geographically dispersed PCNs across England. Method: Data were collected from July 2020 to March 2022, including 91 semi-structured interviews and 87 hours of meeting observations. Transcripts were analysed using the framework approach. Results: The implementation of the ARRS was variable across the study sites, but most shared similar experiences and concerns. The Covid-19 pandemic had a significant impact on the introduction of the new roles, and we found significant variability in modes of employment. Cross-cutting issues included: the need for additional space to accommodate new staff; the inflexibility of aspects of the scheme, including reinvestment of unspent funds; and the need for support and oversight of employed staff. Perceived benefits of the ARRS include improved patient care and the potential to save GP time. Conclusion: Our findings suggests the ARRS has potential to fulfil its objective of supporting and improving access to general practice. However, attention to operational requirements including appropriate funding, estates and management of staff is important if this is to be realised, as is clarity for the scheme post contract end in 2024.",
       "authors": ["Donna Bramwell", "Jonathan Hammond", "Lynsey Warwick-Giles", "Simon Bailey", "Katherine Checkland"]
+    }
+  }
+}'
+
+patch works/10.5555/666777 '{
+  "data": {
+    "type": "work",
+    "id": "10.5555/666777",
+    "attributes": {
+      "crossrefStatus": "not-found",
     }
   }
 }'
