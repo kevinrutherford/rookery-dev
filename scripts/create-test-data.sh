@@ -2,16 +2,28 @@
 
 set -e
 
+. .env
+
 API="${1:-http://localhost:44001}"
 
 post() {
   sleep 2
-  curl --fail-with-body -X POST -H 'Content-type: application/json' --url ${API}/$1 -d "$2"
+  curl --fail-with-body \
+    -X POST \
+    -H 'Content-type: application/json' \
+    -H "Authorization: Bearer ${DEVELOPMENT_BEARER_TOKEN}" \
+    --url ${API}/$1 \
+    -d "$2"
 }
 
 patch() {
   sleep 2
-  curl --fail-with-body -X PATCH -H 'Content-type: application/json' --url ${API}/$1 -d "$2"
+  curl --fail-with-body \
+    -X PATCH \
+    -H 'Content-type: application/json' \
+    -H "Authorization: Bearer ${DEVELOPMENT_BEARER_TOKEN}" \
+    --url ${API}/$1 \
+    -d "$2"
 }
 
 COLLECTION_1_ID="chs"
