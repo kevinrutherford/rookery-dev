@@ -14,8 +14,8 @@ patch() {
   curl --fail-with-body -X PATCH -H 'Content-type: application/json' --url ${API}/$1 -d "$2"
 }
 
-COLLECTION_1_ID=`uuidgen`
-COLLECTION_2_ID=`uuidgen`
+COLLECTION_1_ID="chs"
+COLLECTION_2_ID="pru3"
 
 post community '{
   "id": "local-community",
@@ -30,14 +30,12 @@ post community '{
 
 post collections '{
   "id": "'$COLLECTION_1_ID'",
-  "handle": "chs",
   "name": "CHS",
   "description": "Papers under review by the CHS project"
 }'
 
 post collections '{
   "id": "'$COLLECTION_2_ID'",
-  "handle": "pru3",
   "name": "PRU3",
   "description": "Papers to be referenced by the PRU3 project"
 }'
