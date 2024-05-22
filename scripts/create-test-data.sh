@@ -26,9 +26,6 @@ patch() {
     -d "$2"
 }
 
-COLLECTION_1_ID="chs"
-COLLECTION_2_ID="pru3"
-
 post community '{
   "id": "local-community",
   "name": "Health organisation, policy and economics (HOPE)",
@@ -39,6 +36,9 @@ post community '{
   ]
 }'
 
+COLLECTION_1_ID="chs"
+COLLECTION_2_ID="pru3"
+COLLECTION_3_ID="hidden"
 
 post collections '{
   "id": "'$COLLECTION_1_ID'",
@@ -50,6 +50,22 @@ post collections '{
   "id": "'$COLLECTION_2_ID'",
   "name": "PRU3",
   "description": "Papers to be referenced by the PRU3 project"
+}'
+
+post collections '{
+  "id": "'$COLLECTION_3_ID'",
+  "name": "Our private collection",
+  "description": "This collection is only visible to authenticated members of this community"
+}'
+
+patch collections/$COLLECTION_3_ID '{
+  "data": {
+    "type": "collection",
+    "id": "'$COLLECTION_3_ID'",
+    "attributes": {
+      "isPrivate": true
+    }
+  }
 }'
 
 ENTRY_1_ID=`uuidgen`
@@ -98,5 +114,17 @@ post comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_3_ID'",
   "content": "Not relevant to our needs."
+}'
+
+post entries '{
+  "id": "'$ENTRY_5_ID'",
+  "doi": "10.7554/elife.95393.1",
+  "collectionId": "'$COLLECTION_3_ID'"
+}'
+
+post comments '{
+  "id": "'$(uuidgen)'",
+  "entryId": "'$ENTRY_5_ID'",
+  "content": "This paper has been reviewed by eLife"
 }'
 
