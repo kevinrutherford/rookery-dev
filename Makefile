@@ -5,7 +5,7 @@ include .env
 
 .PHONY: down up populate release
 
-up: down build
+up: build
 	$(DOCKER_COMPOSE) up -d
 
 down:
