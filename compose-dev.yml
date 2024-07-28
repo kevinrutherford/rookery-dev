@@ -16,7 +16,7 @@ services:
     volumes:
       - ${ROOKERY_SAGAS_REPO}/src:/srv/app/src
     environment:
-      - DEVELOPMENT_BEARER_TOKEN=${DEVELOPMENT_BEARER_TOKEN}
+      - USER_CRB_ID=${USER_CRB_ID}
     depends_on:
       - commands
       - views
@@ -50,6 +50,22 @@ services:
       - ${ROOKERY_VIEWS_REPO}/src:/srv/app/src
     environment:
       - DEVELOPMENT_BEARER_TOKEN=${DEVELOPMENT_BEARER_TOKEN}
+      - USER_1_ID=${USER_1_ID}
+      - USER_1_USERNAME=${USER_1_USERNAME}
+      - USER_1_DISPLAYNAME=${USER_1_DISPLAYNAME}
+      - USER_1_AVATAR_URL=${USER_1_AVATAR_URL}
+      - USER_2_ID=${USER_2_ID}
+      - USER_2_USERNAME=${USER_2_USERNAME}
+      - USER_2_DISPLAYNAME=${USER_2_DISPLAYNAME}
+      - USER_2_AVATAR_URL=${USER_2_AVATAR_URL}
+      - USER_3_ID=${USER_3_ID}
+      - USER_3_USERNAME=${USER_3_USERNAME}
+      - USER_3_DISPLAYNAME=${USER_3_DISPLAYNAME}
+      - USER_3_AVATAR_URL=${USER_3_AVATAR_URL}
+      - USER_CRB_ID=${USER_CRB_ID}
+      - USER_CRB_USERNAME=${USER_CRB_USERNAME}
+      - USER_CRB_DISPLAYNAME=${USER_CRB_DISPLAYNAME}
+      - USER_CRB_AVATAR_URL=${USER_CRB_AVATAR_URL}
     depends_on:
       - eventstore
     restart: no

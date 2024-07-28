@@ -33,7 +33,8 @@ post community '{
   "overview": [
     "This interdisciplinary theme focuses upon research which investigates the supply, organisation, management and financing of health and social care services.",
     "Our expertise encompasses rigorous econometric analysis and a wide range of qualitative social scientific methods, including particular experience in the use of ethnographic approaches to understand organisational processes."
-  ]
+  ],
+  "theme": "stone"
 }'
 
 COLLECTION_1_ID="chs"
