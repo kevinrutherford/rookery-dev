@@ -31,14 +31,14 @@ patch() {
 }
 
 post community '{
-  "id": "local-community",
-  "name": "Health organisation, policy and economics (HOPE)",
-  "affiliation": "Centre for Primary Care and Health Services Research, Manchester University",
+  "id": "gryffindor",
+  "name": "Gryffindor House",
+  "affiliation": "Hogwarts School of Witchcraft and Wizardry",
   "overview": [
-    "This interdisciplinary theme focuses upon research which investigates the supply, organisation, management and financing of health and social care services.",
-    "Our expertise encompasses rigorous econometric analysis and a wide range of qualitative social scientific methods, including particular experience in the use of ethnographic approaches to understand organisational processes."
+    "Gryffindor is one of the four Houses of Hogwarts School of Witchcraft and Wizardry and was founded by Godric Gryffindor. Gryffindor instructed the Sorting Hat to choose students possessing characteristics he most valued, such as courage, chivalry, nerve and determination, to be sorted into his house.",
+    "The emblematic animal is a lion, and its colours are scarlet and gold and its house point hourglass is filled with rubies. Sir Nicholas de Mimsy-Porpington, also known as Nearly Headless Nick, is the House ghost."
   ],
-  "theme": "stone"
+  "theme": "red"
 }'
 
 COLLECTION_1_ID="chs"
