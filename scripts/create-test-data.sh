@@ -41,26 +41,26 @@ post community '{
   "theme": "red"
 }'
 
-COLLECTION_1_ID="chs"
-COLLECTION_2_ID="pru3"
-COLLECTION_3_ID="hidden"
+COLLECTION_1_ID="herbology"
+COLLECTION_2_ID="creatures"
+COLLECTION_3_ID="dark-arts"
 
 post collections '{
   "id": "'$COLLECTION_1_ID'",
-  "name": "CHS",
-  "description": "Papers under review by the CHS project"
+  "name": "Herbology",
+  "description": "Required reading for Hogwarts herbology classes."
 }'
 
 post collections '{
   "id": "'$COLLECTION_2_ID'",
-  "name": "PRU3",
-  "description": "Papers to be referenced by the PRU3 project"
+  "name": "Care of Magical Creatures",
+  "description": "Required reading for the Care of Magical Creatures elective subject."
 }'
 
 post collections '{
   "id": "'$COLLECTION_3_ID'",
-  "name": "Our private collection",
-  "description": "This collection is only visible to authenticated members of this community"
+  "name": "Defence Against the Dark Arts",
+  "description": "Required reading for students taking Defence Against the Dark Arts at Hogwarts."
 }'
 
 patch collections/$COLLECTION_3_ID '{
@@ -81,25 +81,25 @@ ENTRY_5_ID=`uuidgen`
 
 post entries '{
   "id": "'$ENTRY_1_ID'",
-  "doi": "10.1126/science.1172133",
+  "doi": "10.21203/rs.3.rs-4595783/v1",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
 post entries '{
   "id": "'$ENTRY_2_ID'",
-  "doi": "10.3399/BJGP.2023.0216",
+  "doi": "10.1101/2021.10.28.466232",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
 post entries '{
   "id": "'$ENTRY_3_ID'",
-  "doi": "10.1111/padm.12268",
+  "doi": "10.1101/2023.12.08.570760",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
 post entries '{
   "id": "'$ENTRY_4_ID'",
-  "doi": "10.5555/666777",
+  "doi": "10.1101/2022.05.17.492376",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
@@ -123,7 +123,7 @@ post comments '{
 
 post entries '{
   "id": "'$ENTRY_5_ID'",
-  "doi": "10.7554/elife.95393.1",
+  "doi": "10.1101/2024.06.06.597796",
   "collectionId": "'$COLLECTION_3_ID'"
 }'
 
