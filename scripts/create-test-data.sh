@@ -4,6 +4,10 @@ set -e
 
 . .env
 
+randomActor() {
+  shuf -z -n1 -e $USER_1_ID $USER_2_ID $USER_3_ID
+}
+
 API="${1:-http://localhost:44001}"
 
 post() {
@@ -11,7 +15,7 @@ post() {
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
-    -H "Authorization: Bearer ${DEVELOPMENT_BEARER_TOKEN}" \
+    -H "Authorization: Bearer `randomActor`" \
     --url ${API}/$1 \
     -d "$2"
 }
@@ -21,7 +25,7 @@ patch() {
   curl --fail-with-body \
     -X PATCH \
     -H 'Content-type: application/json' \
-    -H "Authorization: Bearer ${DEVELOPMENT_BEARER_TOKEN}" \
+    -H "Authorization: Bearer `randomActor`" \
     --url ${API}/$1 \
     -d "$2"
 }
