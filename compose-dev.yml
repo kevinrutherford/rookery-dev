@@ -31,8 +31,6 @@ services:
       dockerfile: dev.Dockerfile
     volumes:
       - ${ROOKERY_COMMANDS_REPO}/src:/srv/app/src
-    environment:
-      - DEVELOPMENT_BEARER_TOKEN=${DEVELOPMENT_BEARER_TOKEN}
     depends_on:
       - eventstore
     restart: no
@@ -49,7 +47,6 @@ services:
     volumes:
       - ${ROOKERY_VIEWS_REPO}/src:/srv/app/src
     environment:
-      - DEVELOPMENT_BEARER_TOKEN=${DEVELOPMENT_BEARER_TOKEN}
       - USER_1_ID=${USER_1_ID}
       - USER_1_USERNAME=${USER_1_USERNAME}
       - USER_1_DISPLAYNAME=${USER_1_DISPLAYNAME}

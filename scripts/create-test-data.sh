@@ -103,6 +103,12 @@ post entries '{
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
+post entries '{
+  "id": "`uuidgen`",
+  "doi": "10.1101/999999",
+  "collectionId": "'$COLLECTION_2_ID'"
+}'
+
 post comments '{
   "id": "'$(uuidgen)'",
   "entryId": "'$ENTRY_1_ID'",
