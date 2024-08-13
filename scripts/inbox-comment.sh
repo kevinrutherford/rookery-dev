@@ -43,11 +43,11 @@ post inbox '{
     "sensitive": false,
     "conversation": "tag:mathstodon.xyz,2024-08-11:objectId=109587681:objectType=Conversation",
     "content": "Something something effective something",
-    "attachment": [],
+    "attachment": []
   },
   "target": {
-    "type": "discussion"
-    "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies",
+    "type": "discussion",
+    "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies"
   }
 }'
 

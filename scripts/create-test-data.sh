@@ -11,7 +11,7 @@ randomActor() {
 API="${1:-http://localhost:44001}"
 
 post() {
-  sleep 2
+  sleep 1
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
