@@ -1,13 +1,12 @@
 #! /bin/bash
 
-set -e
+set -ex
 
 . .env
 
 API="${1:-http://localhost:44001}"
 
 post() {
-  sleep 2
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
@@ -24,7 +23,7 @@ post inbox '{
     "type": "member",
     "id": "https://mastodon.me.uk/users/kevinrutherford",
     "username": "voldemort",
-    "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/a/a3/Lordvoldemort.jpg",
+    "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/a/a3/Lordvoldemort.jpg"
   },
   "published": "2024-08-11T16:22:53Z",
   "to": [
@@ -46,9 +45,8 @@ post inbox '{
     "attachment": [],
     "target": {
       "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies",
-      "type": "Discussion",
+      "type": "Discussion"
     }
   }
-
 }'
 
