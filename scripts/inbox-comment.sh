@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -ex
+set -e
 
 . .env
 
@@ -10,6 +10,7 @@ post() {
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
+    -H "Authorization: Bearer randomActor" \
     --url ${API}/$1 \
     -d "$2"
 }
