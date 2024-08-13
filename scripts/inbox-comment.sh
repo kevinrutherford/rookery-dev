@@ -44,10 +44,10 @@ post inbox '{
     "conversation": "tag:mathstodon.xyz,2024-08-11:objectId=109587681:objectType=Conversation",
     "content": "Something something effective something",
     "attachment": [],
-    "target": {
-      "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies",
-      "type": "Discussion"
-    }
+  },
+  "target": {
+    "type": "discussion"
+    "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies",
   }
 }'
 
