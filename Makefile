@@ -23,3 +23,10 @@ release: down
 	$(MAKE) -C $(ROOKERY_SAGAS_REPO) all release
 	$(MAKE) -C $(ROOKERY_UI_REPO) all release
 
+status:
+	(cd $(ROOKERY_COMMANDS_REPO) && git status)
+	(cd $(ROOKERY_VIEWS_REPO) && git status)
+	(cd $(ROOKERY_SAGAS_REPO) && git status)
+	(cd $(ROOKERY_UI_REPO) && git status)
+	git status
+
