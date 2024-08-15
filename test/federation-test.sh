@@ -6,6 +6,8 @@ set -ex
 
 . .env
 
+COLLECTION_1_ID="poisons-`mktemp -u XXXXXXXXXX`"
+
 #- helpers - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 randomActor() {
@@ -32,8 +34,8 @@ post() {
 create_collection() {
   post `randomActor` ${COMMUNITY_A}/collections '{
   "id": "'$COLLECTION_1_ID'",
-  "name": "Herbology",
-  "description": "Required reading for Hogwarts herbology classes."
+  "name": "Poisons",
+  "description": "Dastardly ways to kill Potter!"
 }'
 }
 
