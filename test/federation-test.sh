@@ -32,7 +32,7 @@ post() {
 }
 
 create_collection() {
-  post `randomActor` ${COMMUNITY_A}/collections '{
+  post `randomActor` ${COMMUNITY_A}/api/collections '{
   "id": "'$COLLECTION_1_ID'",
   "name": "Poisons",
   "description": "Dastardly ways to kill Potter!"
@@ -40,7 +40,7 @@ create_collection() {
 }
 
 assert_collection_appears_in_followers_feed() {
-  get `randomActor` ${COMMUNITY_B}/timelines/followed
+  get `randomActor` ${COMMUNITY_B}/api/timelines/followed
 }
 
 start_discussion() {
