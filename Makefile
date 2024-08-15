@@ -30,3 +30,6 @@ status:
 	(cd $(ROOKERY_UI_REPO) && git status)
 	git status
 
+federation-test:
+	sh scripts/federation-test.sh
+
