@@ -31,5 +31,5 @@ status:
 	git status
 
 federation-test:
-	sh scripts/federation-test.sh
+	sh test/federation-test.sh
 
