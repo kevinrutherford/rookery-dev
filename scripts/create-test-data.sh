@@ -5,7 +5,7 @@ set -e
 . .env
 
 randomActor() {
-  shuf -z --random-source=/dev/random -n1 -e $USER_1_ID $USER_2_ID $USER_3_ID
+  shuf -z --random-source=/dev/random -n1 -e $USER_B1_ID $USER_B2_ID $USER_B3_ID
 }
 
 API="${1:-http://localhost:44001}"
