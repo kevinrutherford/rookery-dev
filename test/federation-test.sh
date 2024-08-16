@@ -12,7 +12,7 @@ ENTRY_1_ID=`uuidgen`
 #- helpers - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 randomActor() {
-  echo 'abc'
+  echo $USER_A2_ID
 }
 
 get() {
