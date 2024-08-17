@@ -16,6 +16,9 @@ services:
     volumes:
       - ${ROOKERY_SAGAS_REPO}/src:/srv/app/src
     environment:
+      - USER_A1_ID=${USER_A1_ID}
+      - USER_A2_ID=${USER_A2_ID}
+      - USER_A3_ID=${USER_A3_ID}
       - USER_CRB_ID=${USER_CRB_ID}
     depends_on:
       - commands

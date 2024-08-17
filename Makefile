@@ -3,7 +3,10 @@ DOCKER_COMPOSE := docker compose -f $(COMPOSE_FILE)
 
 include .env
 
-.PHONY: down up populate release
+.PHONY: down up populate release federation-test
+
+federation-test:
+	sh test/federation-test.sh
 
 up: build
 	$(DOCKER_COMPOSE) up -d
@@ -29,7 +32,4 @@ status:
 	(cd $(ROOKERY_SAGAS_REPO) && git status)
 	(cd $(ROOKERY_UI_REPO) && git status)
 	git status
-
-federation-test:
-	sh test/federation-test.sh
 
