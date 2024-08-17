@@ -81,7 +81,7 @@ ENTRY_5_ID=`uuidgen`
 
 post entries '{
   "id": "'$ENTRY_1_ID'",
-  "doi": "10.21203/rs.3.rs-4595783/v1",
+  "doi": "10.7717/peerj.9630",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
