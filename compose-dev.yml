@@ -16,6 +16,7 @@ services:
     volumes:
       - ${ROOKERY_SAGAS_REPO}/src:/srv/app/src
     environment:
+      - ROOKERY_HOSTNAME=${ROOKERY_HOSTNAME}
       - USER_A1_ID=${USER_A1_ID}
       - USER_A2_ID=${USER_A2_ID}
       - USER_A3_ID=${USER_A3_ID}
