@@ -21,33 +21,16 @@ post inbox '{
   ],
   "type": "Create",
   "actor": {
-    "type": "member",
-    "id": "https://mastodon.me.uk/users/kevinrutherford",
-    "username": "voldemort",
-    "avatarUrl": "https://upload.wikimedia.org/wikipedia/en/a/a3/Lordvoldemort.jpg"
+    "id": "https://mastodon.me.uk/api/members/'$USER_A1_ID'"
   },
-  "published": "2024-08-11T16:22:53Z",
-  "to": [
-    "https://www.w3.org/ns/activitystreams#Public"
-  ],
+  "published": "'`date -Iseconds`'",
   "object": {
-    "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072",
     "type": "Note",
-    "summary": "Something something effective something",
-    "published": "2024-08-11T16:22:53Z",
-    "url": "https://mastodon.me.uk/@kevinrutherford/112944308111548072",
-    "attributedTo": "https://mastodon.me.uk/users/kevinrutherford",
-    "to": [
-      "https://www.w3.org/ns/activitystreams#Public"
-    ],
-    "sensitive": false,
-    "conversation": "tag:mathstodon.xyz,2024-08-11:objectId=109587681:objectType=Conversation",
-    "content": "Something something effective something",
-    "attachment": []
+    "content": "Something something effective something"
   },
   "target": {
     "type": "discussion",
-    "id": "https://mastodon.me.uk/users/kevinrutherford/statuses/112944308111548072/replies"
+    "id": "203455fe-eb71-4cea-894f-a8954a261fd3"
   }
 }'
 
