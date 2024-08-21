@@ -12,6 +12,7 @@ API="${1:-http://localhost:44001}"
 
 post() {
   sleep 1
+  echo "curl -X POST ${API}/$1"
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
@@ -22,6 +23,7 @@ post() {
 
 patch() {
   sleep 2
+  echo "curl -X PATCH ${API}/$1"
   curl --fail-with-body \
     -X PATCH \
     -H 'Content-type: application/json' \

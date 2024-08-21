@@ -7,6 +7,7 @@ set -e
 API="${1:-http://localhost:44001}"
 
 post() {
+  echo "curl -X POST ${API}/$1"
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
@@ -21,7 +22,7 @@ post inbox '{
   ],
   "type": "Create",
   "actor": {
-    "id": "https://mastodon.me.uk/api/members/'$USER_A1_ID'"
+    "id": "'$COMMUNITY_A'/api/members/'$USER_A1_ID'"
   },
   "published": "'`date -Iseconds`'",
   "object": {
