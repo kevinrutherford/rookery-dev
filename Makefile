@@ -3,7 +3,7 @@ DOCKER_COMPOSE := docker compose -f $(COMPOSE_FILE)
 
 include .env
 
-.PHONY: down up populate release federation-test
+.PHONY: down up populate release federation-test status tag
 
 federation-test:
 	sh test/federation-test.sh
@@ -32,4 +32,10 @@ status:
 	(cd $(ROOKERY_SAGAS_REPO) && git describe --tags && git status -s && echo)
 	(cd $(ROOKERY_UI_REPO) && git describe --tags && git status -s && echo)
 	git status -s
+
+tag:
+	(cd $(ROOKERY_COMMANDS_REPO) && git tag ${VERSION})
+	(cd $(ROOKERY_VIEWS_REPO) && git tag ${VERSION})
+	(cd $(ROOKERY_SAGAS_REPO) && git tag ${VERSION})
+	(cd $(ROOKERY_UI_REPO) && git tag ${VERSION})
 
