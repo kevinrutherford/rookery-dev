@@ -31,7 +31,7 @@ post inbox '{
   },
   "target": {
     "type": "discussion",
-    "id": "203455fe-eb71-4cea-894f-a8954a261fd3"
+    "id": "'$COMMUNITY_A'/api/discussions/203455fe-eb71-4cea-894f-a8954a261fd3"
   }
 }'
 
