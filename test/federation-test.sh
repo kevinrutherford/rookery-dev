@@ -49,7 +49,7 @@ assert_collection_appears_in_followers_feed() {
 }
 
 start_discussion() {
-  post `randomActor` ${COMMUNITY_A}/api/entries '{
+  post `randomActor` ${COMMUNITY_A}/api/discussions '{
   "id": "'$ENTRY_1_ID'",
   "doi": "10.7717/peerj.9630",
   "collectionId": "'$COLLECTION_1_ID'"

@@ -81,31 +81,31 @@ ENTRY_3_ID=`uuidgen`
 ENTRY_4_ID=`uuidgen`
 ENTRY_5_ID=`uuidgen`
 
-post entries '{
+post discussions '{
   "id": "'$ENTRY_1_ID'",
   "doi": "10.7717/peerj.9630",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
-post entries '{
+post discussions '{
   "id": "'$ENTRY_2_ID'",
   "doi": "10.1101/2021.10.28.466232",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
-post entries '{
+post discussions '{
   "id": "'$ENTRY_3_ID'",
   "doi": "10.1101/2023.12.08.570760",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
-post entries '{
+post discussions '{
   "id": "'$ENTRY_4_ID'",
   "doi": "10.1101/2022.05.17.492376",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
-post entries '{
+post discussions '{
   "id": "`uuidgen`",
   "doi": "10.1101/999999",
   "collectionId": "'$COLLECTION_2_ID'"
@@ -129,7 +129,7 @@ post comments '{
   "content": "Not relevant to our needs."
 }'
 
-post entries '{
+post discussions '{
   "id": "'$ENTRY_5_ID'",
   "doi": "10.1101/2024.06.06.597796",
   "collectionId": "'$COLLECTION_3_ID'"
