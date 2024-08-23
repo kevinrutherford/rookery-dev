@@ -75,32 +75,32 @@ patch collections/$COLLECTION_3_ID '{
   }
 }'
 
-ENTRY_1_ID=`uuidgen`
-ENTRY_2_ID=`uuidgen`
-ENTRY_3_ID=`uuidgen`
-ENTRY_4_ID=`uuidgen`
-ENTRY_5_ID=`uuidgen`
+DISCUSSION_1_ID=`uuidgen`
+DISCUSSION_2_ID=`uuidgen`
+DISCUSSION_3_ID=`uuidgen`
+DISCUSSION_4_ID=`uuidgen`
+DISCUSSION_5_ID=`uuidgen`
 
 post discussions '{
-  "id": "'$ENTRY_1_ID'",
+  "id": "'$DISCUSSION_1_ID'",
   "doi": "10.7717/peerj.9630",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
 post discussions '{
-  "id": "'$ENTRY_2_ID'",
+  "id": "'$DISCUSSION_2_ID'",
   "doi": "10.1101/2021.10.28.466232",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
 
 post discussions '{
-  "id": "'$ENTRY_3_ID'",
+  "id": "'$DISCUSSION_3_ID'",
   "doi": "10.1101/2023.12.08.570760",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
 
 post discussions '{
-  "id": "'$ENTRY_4_ID'",
+  "id": "'$DISCUSSION_4_ID'",
   "doi": "10.1101/2022.05.17.492376",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
@@ -113,31 +113,31 @@ post discussions '{
 
 post comments '{
   "id": "'$(uuidgen)'",
-  "entryId": "'$ENTRY_1_ID'",
+  "discussionId": "'$DISCUSSION_1_ID'",
   "content": "I love this!"
 }'
 
 post comments '{
   "id": "'$(uuidgen)'",
-  "entryId": "'$ENTRY_1_ID'",
-  "content": "Here is a very long comment, written entirely to test text justification in the browser page for the entry. If you are going to use a passage of Lorem Ipsum, you need to be sure there is nothing embarrassing hidden in the middle of text."
+  "discussionId": "'$DISCUSSION_1_ID'",
+  "content": "Here is a very long comment, written entirely to test text justification in the browser page for the discussion. If you are going to use a passage of Lorem Ipsum, you need to be sure there is nothing embarrassing hidden in the middle of text."
 }'
 
 post comments '{
   "id": "'$(uuidgen)'",
-  "entryId": "'$ENTRY_3_ID'",
+  "discussionId": "'$DISCUSSION_3_ID'",
   "content": "Not relevant to our needs."
 }'
 
 post discussions '{
-  "id": "'$ENTRY_5_ID'",
+  "id": "'$DISCUSSION_5_ID'",
   "doi": "10.1101/2024.06.06.597796",
   "collectionId": "'$COLLECTION_3_ID'"
 }'
 
 post comments '{
   "id": "'$(uuidgen)'",
-  "entryId": "'$ENTRY_5_ID'",
+  "discussionId": "'$DISCUSSION_5_ID'",
   "content": "This paper has been reviewed by eLife"
 }'
 

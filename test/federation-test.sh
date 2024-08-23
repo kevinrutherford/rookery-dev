@@ -7,7 +7,7 @@ set -e
 . .env
 
 COLLECTION_1_ID="poisons-`mktemp -u XXXXXXXXXX`"
-ENTRY_1_ID=`uuidgen`
+DISCUSSION_1_ID=`uuidgen`
 
 #- helpers - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -50,7 +50,7 @@ assert_collection_appears_in_followers_feed() {
 
 start_discussion() {
   post `randomActor` ${COMMUNITY_A}/api/discussions '{
-  "id": "'$ENTRY_1_ID'",
+  "id": "'$DISCUSSION_1_ID'",
   "doi": "10.7717/peerj.9630",
   "collectionId": "'$COLLECTION_1_ID'"
 }'
@@ -63,7 +63,7 @@ assert_discussion_appears_in_followers_feed() {
 add_comment() {
   post `randomActor` ${COMMUNITY_A}/api/comments '{
   "id": "'$(uuidgen)'",
-  "entryId": "'$ENTRY_1_ID'",
+  "discussionId": "'$DISCUSSION_1_ID'",
   "content": "I love this!"
 }'
 }
