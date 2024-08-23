@@ -106,7 +106,7 @@ post discussions '{
 }'
 
 post discussions '{
-  "id": "`uuidgen`",
+  "id": "'`uuidgen`'",
   "doi": "10.1101/999999",
   "collectionId": "'$COLLECTION_2_ID'"
 }'
