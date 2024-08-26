@@ -25,7 +25,7 @@ post() {
     -d "$3"
 }
 
-post `randomActorA` $COMMUNITY_A/api/community '{
+post $USER_A1_ID $COMMUNITY_A/api/community '{
   "id": "slytherin",
   "name": "Slytherin House",
   "affiliation": "Hogwarts School of Witchcraft and Wizardry",
@@ -36,7 +36,7 @@ post `randomActorA` $COMMUNITY_A/api/community '{
   "theme": "emerald"
 }'
 
-post `randomActorB` $COMMUNITY_B/api/community '{
+post $USER_B1_ID $COMMUNITY_B/api/community '{
   "id": "gryffindor",
   "name": "Gryffindor House",
   "affiliation": "Hogwarts School of Witchcraft and Wizardry",

@@ -4,32 +4,33 @@ set -e
 
 . .env
 
-API="${1:-http://localhost:44001}"
+LOCALHOST_WRITE_SIDE="http://localhost:44001"
+LOCALHOST_READ_SIDE="http://localhost:44002"
 
 post() {
-  echo "curl -X POST ${API}/$1"
+  echo "curl -X POST /$2"
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
     -H "Authorization: Bearer $1" \
-    --url ${API}/$2 \
+    --url ${LOCALHOST_WRITE_SIDE}/$2 \
     -d "$3"
 }
 
-post $USER_B2_ID inbox '{
+post $USER_A2_ID inbox '{
   "@context": ["https://www.w3.org/ns/activitystreams"],
   "type": "Follow",
   "actor": {
     "type": "member",
-    "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'"
+    "id": "'$LOCALHOST_READ_SIDE'/members/'$USER_A2_ID'"
   },
   "object": {
     "type": "member",
-    "id": "'$USER_A2_ID'"
+    "id": "'$USER_B2_ID'"
   }
 }'
 
-post randomActor inbox '{
+post $USER_A1_ID inbox '{
   "@context": [
     "https://www.w3.org/ns/activitystreams"
   ],
