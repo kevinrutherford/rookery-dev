@@ -25,7 +25,7 @@ post $USER_B2_ID inbox '{
   },
   "object": {
     "type": "member",
-    "id": "'$COMMUNITY_A'/api/members/'$USER_A2_ID'"
+    "id": "'$USER_A2_ID'"
   }
 }'
 
