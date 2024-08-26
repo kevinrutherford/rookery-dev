@@ -11,12 +11,25 @@ post() {
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
-    -H "Authorization: Bearer randomActor" \
-    --url ${API}/$1 \
-    -d "$2"
+    -H "Authorization: Bearer $1" \
+    --url ${API}/$2 \
+    -d "$3"
 }
 
-post inbox '{
+post $USER_B2_ID inbox '{
+  "@context": ["https://www.w3.org/ns/activitystreams"],
+  "type": "Follow",
+  "actor": {
+    "type": "member",
+    "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'"
+  },
+  "object": {
+    "type": "member",
+    "id": "'$COMMUNITY_A'/api/members/'$USER_A2_ID'"
+  }
+}'
+
+post randomActor inbox '{
   "@context": [
     "https://www.w3.org/ns/activitystreams"
   ],
