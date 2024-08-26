@@ -36,6 +36,23 @@ post() {
   echo
 }
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+follow_the_actor() {
+  post $USER_B2_ID ${COMMUNITY_A}/api/inbox '{
+  "@context": ["https://www.w3.org/ns/activitystreams"],
+  "type": "Follow",
+  "actor": {
+    "type": "member",
+    "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'"
+  },
+  "object": {
+    "type": "member",
+    "id": "'$COMMUNITY_A'/api/members/'$USER_A2_ID'"
+  }
+}'
+}
+
 create_collection() {
   post `randomActor` ${COMMUNITY_A}/api/collections '{
   "id": "'$COLLECTION_1_ID'",
@@ -75,6 +92,7 @@ assert_comment_appears_in_followers_feed() {
 
 #- main - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+follow_the_actor
 create_collection
 assert_collection_appears_in_followers_feed
 start_discussion
