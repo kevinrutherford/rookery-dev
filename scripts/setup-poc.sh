@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -ex
+set -e
 
 . .env
 
@@ -16,6 +16,7 @@ API="${1:-http://localhost:44001}"
 
 post() {
   sleep 1
+  echo "curl -X POST $2"
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
