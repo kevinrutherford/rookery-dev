@@ -26,6 +26,7 @@ get() {
 }
 
 post() {
+  sleep 3
   echo "curl -X POST $1 $2"
   curl --fail-with-body \
     -X POST \
@@ -44,7 +45,7 @@ follow_the_actor() {
   "type": "Follow",
   "actor": {
     "type": "Person",
-    "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'"
+    "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'",
     "inbox": "'$COMMUNITY_B'/api/inbox"
   },
   "object": {
