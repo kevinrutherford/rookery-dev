@@ -7,6 +7,14 @@ set -e
 LOCALHOST_WRITE_SIDE="http://localhost:44001"
 LOCALHOST_READ_SIDE="http://localhost:44002"
 
+get() {
+  curl -s --fail-with-body \
+    -X GET \
+    -H 'Accept: application/json' \
+    -H "Authorization: Bearer anyone" \
+    --url ${LOCALHOST_READ_SIDE}/$1
+}
+
 post() {
   echo "curl -X POST ${LOCALHOST_WRITE_SIDE}/$2"
   curl --fail-with-body \
@@ -16,6 +24,10 @@ post() {
     --url ${LOCALHOST_WRITE_SIDE}/$2 \
     -d "$3"
 }
+
+#--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+discussionId=`get discussions | jq -M '.data[0].id' | sed -e 's/"//g'`
 
 post $USER_B2_ID inbox '{
   "@context": ["https://www.w3.org/ns/activitystreams"],
@@ -46,7 +58,7 @@ post $USER_A1_ID inbox '{
   },
   "target": {
     "type": "discussion",
-    "id": "30781b8f-1b83-47c7-98e7-b33166754649"
+    "id": "'$discussionId'"
   }
 }'
 
