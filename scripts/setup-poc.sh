@@ -4,16 +4,6 @@ set -e
 
 . .env
 
-randomActorA() {
-  shuf -z --random-source=/dev/random -n1 -e $USER_A1_ID $USER_A2_ID $USER_A3_ID
-}
-
-randomActorB() {
-  shuf -z --random-source=/dev/random -n1 -e $USER_B1_ID $USER_B2_ID $USER_B3_ID
-}
-
-API="${1:-http://localhost:44001}"
-
 post() {
   sleep 1
   echo "curl -X POST $2"
@@ -24,6 +14,8 @@ post() {
     --url $2 \
     -d "$3"
 }
+
+#--- Slytherin - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 post $USER_A1_ID $COMMUNITY_A/api/community '{
   "id": "slytherin",
@@ -36,6 +28,24 @@ post $USER_A1_ID $COMMUNITY_A/api/community '{
   "theme": "emerald"
 }'
 
+COLLECTION_A1_ID="herbology"
+
+post $USER_A2_ID $COMMUNITY_A/api/collections '{
+  "id": "'$COLLECTION_A1_ID'",
+  "name": "Dastardly spells",
+  "description": "Required reading for death eaters."
+}'
+
+DISCUSSION_A1_ID=`uuidgen`
+
+post $USER_A3_ID $COMMUNITY_A/api/discussions '{
+  "id": "'$DISCUSSION_A1_ID'",
+  "doi": "10.7554/elife.88287.3",
+  "collectionId": "'$COLLECTION_A1_ID'"
+}'
+
+#--- Gryffindor - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 post $USER_B1_ID $COMMUNITY_B/api/community '{
   "id": "gryffindor",
   "name": "Gryffindor House",
@@ -45,5 +55,21 @@ post $USER_B1_ID $COMMUNITY_B/api/community '{
     "The emblematic animal is a lion, and its colours are scarlet and gold and its house point hourglass is filled with rubies. Sir Nicholas de Mimsy-Porpington, also known as Nearly Headless Nick, is the House ghost."
   ],
   "theme": "red"
+}'
+
+COLLECTION_B1_ID="herbology"
+
+post $USER_B2_ID $COMMUNITY_B/api/collections '{
+  "id": "'$COLLECTION_B1_ID'",
+  "name": "Herbology",
+  "description": "Required reading for Hogwarts herbology classes."
+}'
+
+DISCUSSION_B1_ID=`uuidgen`
+
+post $USER_B3_ID $COMMUNITY_B/api/discussions '{
+  "id": "'$DISCUSSION_B1_ID'",
+  "doi": "10.1101/2021.10.28.466232",
+  "collectionId": "'$COLLECTION_B1_ID'"
 }'
 
