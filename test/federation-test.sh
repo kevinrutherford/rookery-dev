@@ -43,11 +43,12 @@ follow_the_actor() {
   "@context": ["https://www.w3.org/ns/activitystreams"],
   "type": "Follow",
   "actor": {
-    "type": "member",
+    "type": "Person",
     "id": "'$COMMUNITY_B'/api/members/'$USER_B2_ID'"
+    "inbox": "'$COMMUNITY_B'/api/inbox"
   },
   "object": {
-    "type": "member",
+    "type": "Person",
     "id": "'$COMMUNITY_A'/api/members/'$USER_A2_ID'"
   }
 }'
