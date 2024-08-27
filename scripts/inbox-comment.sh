@@ -8,7 +8,7 @@ LOCALHOST_WRITE_SIDE="http://localhost:44001"
 LOCALHOST_READ_SIDE="http://localhost:44002"
 
 post() {
-  echo "curl -X POST /$2"
+  echo "curl -X POST ${LOCALHOST_WRITE_SIDE}/$2"
   curl --fail-with-body \
     -X POST \
     -H 'Content-type: application/json' \
@@ -17,16 +17,17 @@ post() {
     -d "$3"
 }
 
-post $USER_A2_ID inbox '{
+post $USER_B2_ID inbox '{
   "@context": ["https://www.w3.org/ns/activitystreams"],
   "type": "Follow",
   "actor": {
-    "type": "member",
-    "id": "'$LOCALHOST_READ_SIDE'/members/'$USER_A2_ID'"
+    "type": "Person",
+    "id": "'$USER_B2_ID'",
+    "inbox": "'$LOCALHOST_WRITE_SIDE'/inbox"
   },
   "object": {
-    "type": "member",
-    "id": "'$USER_B2_ID'"
+    "type": "Person",
+    "id": "'$USER_A1_ID'"
   }
 }'
 
@@ -36,7 +37,7 @@ post $USER_A1_ID inbox '{
   ],
   "type": "Create",
   "actor": {
-    "id": "'$COMMUNITY_A'/api/members/'$USER_A1_ID'"
+    "id": "'$USER_A1_ID'"
   },
   "published": "'`date -Iseconds`'",
   "object": {
@@ -45,7 +46,7 @@ post $USER_A1_ID inbox '{
   },
   "target": {
     "type": "discussion",
-    "id": "'$COMMUNITY_A'/api/discussions/6e35fed8-0220-4da4-a61a-43cefc910263"
+    "id": "30781b8f-1b83-47c7-98e7-b33166754649"
   }
 }'
 
