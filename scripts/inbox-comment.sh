@@ -35,7 +35,7 @@ post $USER_B2_ID inbox '{
   "actor": {
     "type": "Person",
     "id": "'$USER_B2_ID'",
-    "inbox": "'$LOCALHOST_WRITE_SIDE'/inbox"
+    "inbox": "http://commands:44001/inbox"
   },
   "object": {
     "type": "Person",
