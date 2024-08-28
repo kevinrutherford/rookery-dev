@@ -50,7 +50,7 @@ follow_the_actor() {
   },
   "object": {
     "type": "Person",
-    "id": "'$COMMUNITY_A'/api/members/'$USER_A2_ID'"
+    "id": "'$USER_A2_ID'"
   }
 }'
 }
